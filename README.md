@@ -2,16 +2,6 @@
 
 This is a Ruby Gem created for a coding exercise.
 
-## Installation
-
-Build the gem using:
-
-    $ gem build nupack.gemspec
-
-And install it:
-
-    $ gem install ./nupack-0.1.0.gem
-
 ## Usage
 
 Create a new job using:
@@ -48,7 +38,6 @@ to run a single test.
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/eduardoprauze/nupack.
-
 
 ## License
 
