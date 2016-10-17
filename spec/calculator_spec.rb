@@ -43,6 +43,11 @@ describe Nupack::Calculator do
       result = @calculator.calculate(@job)
       expect(result).to eq(1199.1)
     end
+    it 'rounds the total cost to two decimal digits' do
+      @job = Nupack::Job.new(1033, 1, 'food')
+      result = @calculator.calculate(@job)
+      expect(result).to eq(1238.67)
+    end
   end
 
 end
