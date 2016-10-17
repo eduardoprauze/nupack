@@ -11,6 +11,7 @@ describe Nupack::Calculator do
     it 'calculates flat markup' do
       result = @calculator.flat_markup(@job)
       expect(result).to eq(50)
+      #possible spec for configurable markups:  expect(result).to eq(@calculator.instance_variable_get(:@flat_markup) * @job.base_price)
     end
   end
 
@@ -49,5 +50,6 @@ describe Nupack::Calculator do
       expect(result).to eq(1238.67)
     end
   end
+
 
 end

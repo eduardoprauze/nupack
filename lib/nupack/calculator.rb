@@ -1,16 +1,18 @@
 module Nupack
     class Calculator
 
-        MARKUPS = {
-          flat: 0.05,
-          personnel: 0.012,
+        FLAT_MARKUP = 0.05
+        PERSONNEL_MARKUP = 0.012
+        MATERIAL_MARKUPS = {
           drugs: 0.075,
           food: 0.13,
           electronics: 0.02
         }
 
-        def initialize( markups = MARKUPS )
-          @markups = markups
+        def initialize( material_markups = MATERIAL_MARKUPS, flat_markup = FLAT_MARKUP, personnel_markup = PERSONNEL_MARKUP )
+          @material_markups = material_markups
+          @flat_markup = flat_markup
+          @personnel_markup = personnel_markup
         end
 
         def calculate(job)
@@ -21,11 +23,11 @@ module Nupack
         end
 
         def flat_markup(job)
-          job.base_price * fetch_markup(:flat)
+          job.base_price * @flat_markup
         end
 
         def personnel_markup(required_personnel, base_plus_flat)
-          personnel_markup = required_personnel * fetch_markup(:personnel)
+          personnel_markup = required_personnel * @personnel_markup
           base_plus_flat * personnel_markup
         end
 
@@ -35,7 +37,7 @@ module Nupack
         end
 
         def fetch_markup(markup)
-          @markups.fetch(markup, 0)
+          @material_markups.fetch(markup, 0)
         end
 
     end
