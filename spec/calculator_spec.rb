@@ -10,7 +10,7 @@ describe Nupack::Calculator do
   describe "#flat_markup" do
     it 'calculates flat markup' do
       result = @calculator.flat_markup(@job)
-      expect(result).to eq(1050)
+      expect(result).to eq(50)
     end
   end
 

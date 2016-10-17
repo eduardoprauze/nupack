@@ -14,14 +14,14 @@ module Nupack
         end
 
         def calculate(job)
-          base_plus_flat = flat_markup(job)
+          base_plus_flat = job.base_price + flat_markup(job)
           markups_total = personnel_markup(job.required_personnel, base_plus_flat)
           markups_total += material_markup(job.material_type, base_plus_flat)
           (base_plus_flat + markups_total).round(2)
         end
 
         def flat_markup(job)
-          job.base_price + (job.base_price * fetch_markup(:flat))
+          job.base_price * fetch_markup(:flat)
         end
 
         def personnel_markup(required_personnel, base_plus_flat)
